@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  nginx:
+    build:
+      context: .
+    image: live
+    container_name: 'sorayama-live'
+    ports:
+      - '5500:80'
+    restart: always
