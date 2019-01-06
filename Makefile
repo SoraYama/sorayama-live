@@ -49,3 +49,9 @@ dbuild: build
 dup: up
 
 dstart: dbuild dstop dup
+
+deploy:
+	yarn
+	yarn build
+	ssh tencent 'bash -c "rm -rf ~/myrepo/sorayama-live/dist/*"'
+	scp -r ./dist tencent:myrepo/sorayama-live

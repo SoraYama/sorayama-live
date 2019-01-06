@@ -1,4 +1,4 @@
-# sorayama-live
+# sorayama-live-js
 
 ## Project setup
 ```

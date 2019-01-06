@@ -1,19 +1,29 @@
 <template>
   <div id="app">
     <Main />
+    <div class="audience">
+      观众：{{audience}}
+    </div>
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import Main from './components/Main.vue';
+<script>
+import Main from './components/Main.vue'
+import io from './socket'
 
-@Component({
+export default {
+  data() {
+    return {
+      audience: 0,
+    }
+  },
+  mounted() {
+    io.on('audience', count => this.audience = count)
+  },
   components: {
     Main,
   },
-})
-export default class App extends Vue {}
+}
 </script>
 
 <style lang="less">
@@ -30,5 +40,14 @@ body {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.audience {
+  font-size: 20px;
+  color: #00f56c;
+  position: absolute;
+  font-weight: 800;
+  top: 10px;
+  right: 10px;
 }
 </style>
