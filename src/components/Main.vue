@@ -58,6 +58,7 @@ export default {
       src: 'http://play.sorayamah.org/live/sorayama.flv',
       controls: true,
       autoplay: true,
+      box: 'flv',
       kernels: {
         flv,
       },
@@ -100,8 +101,6 @@ export default {
     io.on('danmaku', text => {
       sendDanmaku(text)
     })
-
-    chimee.load()
   },
 };
 </script>
