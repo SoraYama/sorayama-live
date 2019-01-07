@@ -92,13 +92,13 @@ export default {
 
     document.querySelector('#danmu-send').addEventListener('click', () => {
       const text = document.querySelector('#danmu-input').value
-      // eslint-disable-next-line no-console
-      console.log(text)
       io.emit('danmaku', text)
       sendDanmaku(text)
     })
 
     io.on('danmaku', text => {
+      // eslint-disable-next-line no-console
+      console.log('Recieve danmaku: ', text)
       sendDanmaku(text)
     })
   },
